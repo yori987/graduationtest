@@ -1,0 +1,494 @@
+@use "../global" as *;
+
+.top {
+	width: 100%;
+	position: relative;
+	&__wrapper {
+		
+	}
+	&__slider {
+		position: relative;
+		width: 100%;
+		height: 100vh;
+		&::after {
+			content:"";
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 1;
+			width: 100%;
+			height: 100%;
+			background-color: rgba($color: #000, $alpha: 0.25);
+		}
+	}
+	&__ttl {
+		@include fz(180);
+		font-weight: black;
+		color: $cWHITE;
+		position: absolute;
+		top:45%;
+		left:10%;
+		z-index: 2;
+		line-height: 1;
+		width:4em;
+		@include mq(pc){
+			top:46%;
+			left:7%;
+		}
+		@include mq(tab){
+			@include fz(110);
+			top:58%;
+			left:5%;
+		}
+		@include mq(sp){
+			@include fz(75);
+			top:40%;
+		}
+	}
+}
+
+
+
+.about {
+	&__wrapper {
+		padding-bottom:0!important;
+	}
+	&__item {
+		margin-top:5%;
+		display: block;
+		text-align: end;
+		@include mq(tab){
+			text-align: left;
+		}
+	}
+	&__txt {
+		display: inline-block;
+		text-align: left;
+		@include mq(sp){
+			@include fz(14);
+		}
+	}
+	&__btn {
+		margin:5% auto;
+		text-align: center;
+		@include mq(sp){
+			margin:10% auto;
+		}
+	}
+	
+}
+
+/*========= レイアウトのためのCSS ===============*/
+
+.wave {
+	width:100%;
+	height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/*========= waveを描画するエリア設定 ===============*/
+
+canvas{
+    position: absolute;
+    bottom: 0;
+		left:0;
+    width: 100%;
+}
+
+
+.service {
+	background-color:$cGRAY ;
+	width:100%;
+	padding-top:10%;
+	overflow: hidden;
+	@include mq(pc){
+		padding-top:unset;
+	}
+	&__wrapper {
+		width:80%;
+		background-color: $cBLACK;
+		margin-left:auto ;
+		@include mq(tab){
+			width:90%;
+		}
+		@include mq(sp){
+			width:95%;
+		}
+	}
+	&__block {
+		position: relative;
+		z-index: 1;
+		@include mq(sp){
+			border-bottom: 4px solid $cBLACK;
+		}
+	}
+	&__inner {
+		padding:5% 5% 1% 5%;
+		box-sizing: border-box;
+		z-index: 5;
+		overflow: hidden;
+	}
+	&__txt {
+		color: $cWHITE;
+		margin-top:5%;
+		width:70%;
+		margin-left:auto;
+		@include mq(tab){
+			margin-left: unset;
+			width:100%;
+			@include fz(14);
+		}
+	}
+	&__btn {
+		margin: 5% auto;
+		text-align: end;
+		@include mq(sp){
+			text-align: center;
+			margin:10% auto;
+		}
+	}
+	&__img {
+		width:100%;
+		height: 40vh;
+		padding-bottom:10%;
+		@include mq(pc){
+			height: 20vh;
+		}
+		@include mq(sp){
+			height: 15vh;
+		}
+		img {
+			width:100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: 0 84%;
+		}
+	}
+	&__back-txt {
+		&::before {
+			content:"SERVICE";
+			right: -44%;
+			bottom:0;
+			@include mq(pc){
+				right: -30%;
+			}
+			@include mq(tab){
+				right:-54%;
+			}
+			@include mq(sp){
+				right:-36%;
+			}
+		}
+	}
+}
+
+.works {
+	background-color:$cGRAY ;
+	width:100%;
+	padding-bottom:5%;
+	overflow: hidden;
+	margin-top: -1px;
+	@include mq(sp){
+		padding-bottom:10%;
+	}
+	&__wrapper {
+		width:80%;
+		background-color: $cBLACK;
+		margin-left:auto;
+		@include mq(tab){
+			width: 90%;
+		}
+		@include mq(sp){
+			width:95%;
+		}
+	}
+	&__block {
+		position: relative;
+		z-index: 1;
+	}
+	&__inner {
+		padding:5% 5% 1% 5%;
+		box-sizing: border-box;
+		z-index: 5;
+		overflow: hidden;
+	}
+	&__txt {
+		color: $cWHITE;
+		margin-top:5%;
+		width:70%;
+		margin-left:auto;
+		@include mq(tab){
+			margin-left: unset;
+			width:100%;
+			@include fz(14);
+		}
+	}
+	&__btn {
+		margin: 5% auto;
+		text-align: end;
+		@include mq(sp){
+			text-align: center;
+			margin:10% auto;
+		}
+	}
+	&__img {
+		width:100%;
+		height: 40vh;
+		padding-bottom:10%;
+		@include mq(pc){
+			height: 20vh;
+		}
+		@include mq(sp){
+			height: 15vh;
+		}
+		img {
+			width:100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: 0 50%;
+		}
+	}
+	&__back-txt {
+		&::before {
+			content:"WORKS";
+			bottom:0;
+			right:-40%;
+			@include mq(pc){
+				right: -19%;
+				}
+			@include mq(tab){
+				right:-41%;
+				}
+			@include mq(sp){
+				right:-36%;
+				}
+			}
+		}
+}
+
+.news {
+	width:100%;
+	background-image: url(../img/news-top.png);
+	position: relative;
+	&::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		width: 100%;
+		height: 100%;
+		background-color: rgba($color: #000, $alpha: 0.7);
+	}
+	&__wrapper {
+		width:80%;
+		max-width: 1340px;
+		margin:0 auto;
+		padding-top:90px;
+		padding-bottom:90px;
+		box-sizing: border-box;
+		@include mq(pc){
+			width:90%;
+			padding-top:40px;
+			padding-bottom:40px;
+		}
+	}
+	&__block {
+		@include flex(end);
+		margin-top:5%;
+		@include mq(pc){
+			justify-content: unset;
+			width:100%;
+			margin-top:10%;
+		}
+		@include mq(sp){
+			margin-top:15%;
+		}
+	}
+	&__list {
+		width: 75%;
+		z-index: 2;
+		@include mq(pc){
+			width:100%;
+		}
+	}
+	&__item {
+		border-top:1px solid $cWHITE;
+		border-bottom: 1px solid $cWHITE;
+		padding:4% 0;
+		z-index: 3;
+		@include mq(sp){
+			padding:6% 0;
+		}
+	}
+	&__link {
+		@include flex(space-around);
+		z-index: 2;
+		color: $cWHITE;
+		transition: 0.7s;
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+	&__date {
+		/*padding-right:8%;*/
+		padding-left:3%;
+		@include mq(sp){
+			@include fz(10);
+			padding-right: 3%;
+			white-space: nowrap;
+		}
+	}
+	&__category {
+		/*margin-right:8%;*/
+		padding:0.2% 1%;
+		border: 1px solid $cWHITE;
+		@include mq(sp){
+			display: none;
+		}
+	}
+	&__txt {
+		padding-left:3%;
+		@include mq(sp){
+			@include fz(10);
+		}
+	}
+}
+
+.contact {
+	padding:5% 0;
+	position: relative;
+	&__wrapper {
+		width:70%;
+		margin:0 auto;
+		background-color:$cYELLOW;
+		@include mq(sp){
+			width:85%;
+		}
+	}
+	&__block {
+		padding:5%;
+		box-sizing: border-box;
+	}
+	&__ttl {
+		font-weight: normal!important;
+		text-align: center;
+		&::after {
+			content:none!important;
+		}
+	}
+	&__btn {
+		text-align: center;
+		margin-top:5%;
+		margin-bottom:5%;
+	}
+	&__link {
+		background-color: $cWHITE;
+	}
+	&__back {
+		box-sizing: border-box;
+		position: absolute;
+		bottom:0;
+		left:0;
+		width:100%;
+		height:100%;
+		padding-right:30%;
+		z-index: -1;
+		@include mq(sp){
+			padding-right:14%;
+		}
+		&-item {
+			position: relative;
+			height: 100%;
+			background: #e4e4ea;
+		}
+	}
+}
+
+/*ローディング*/
+/*========= ローディング画面のためのCSS ===============*/
+#splash {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(180deg, $cWHITE 0%, $cWHITE 50%, $cGRAY 50%, $cGRAY 100%);;
+	z-index: 9999999;
+	text-align:center;
+}
+
+#splash-logo {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/*========= 画面遷移のためのCSS ===============*/
+
+/*画面遷移アニメーション*/
+.splashbg{
+  display: none;
+}
+
+/*bodyにappearクラスがついたら出現*/
+body.appear .splashbg{
+	display: block;
+	content: "";
+	position:fixed;
+	z-index: 999;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	transform: scaleX(0);
+	background-color: #333;/*伸びる背景色の設定*/
+	animation-name:PageAnime;
+	animation-duration:1.2s;
+	animation-timing-function:ease-in-out;
+	animation-fill-mode:forwards;
+}
+
+@keyframes PageAnime{
+	0% {
+		transform-origin:left;
+		transform:scaleX(0);
+	}
+	50% {
+		transform-origin:left;
+		transform:scaleX(1);
+	}
+	50.001% {
+		transform-origin:right;
+	}
+	100% {
+		transform-origin:right;
+		transform:scaleX(0);
+	}
+}
+
+/*画面遷移の後現れるコンテンツ設定*/
+#loading-container{
+	opacity: 0;/*はじめは透過0に*/
+}
+
+/*bodyにappearクラスがついたら出現*/
+body.appear #loading-container{
+	animation-name:PageAnimeAppear;
+	animation-duration:1s;
+	animation-delay: 0.8s;
+	animation-fill-mode:forwards;
+	opacity: 0;
+}
+
+@keyframes PageAnimeAppear{
+	0% {
+	opacity: 0;
+	}
+	100% {
+	opacity: 1;
+}
+}

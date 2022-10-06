@@ -1,0 +1,167 @@
+@use "../global" as *;
+
+.news-single {
+	width: 100%;
+	&__wrapper {
+
+	}
+	&__date {
+		@include fz(24);
+		font-family: $fSOURCE;
+		@include mq(sp){
+			@include fz(12);
+		}
+	}
+	&__ttl {
+		font-family: $fSOURCE;
+		@include fz(36);
+		margin-top:5%;
+		text-align: center;
+		position: relative;
+		@include mq(pc){
+			@include fz(32);
+		}
+		@include mq(tab){
+			@include fz(24);
+		}
+		@include mq(sp){
+			@include fz(12);
+		}
+		&::before {
+			content:"";
+			position: absolute;
+			bottom:-80px;
+			left:50%;
+			transform: translate(-50%,-50%);
+			width:510px;
+			height: 1px;
+			background-color: $cBLACK;
+			@include mq(pc){
+				width:410px;
+				bottom:-40px;
+			}
+			@include mq(tab){
+				width:250px;
+				bottom:-40px;
+			}
+			@include mq(sp){
+				width:200px;
+				bottom:-20px;
+			}
+		}
+	}
+	&__txt {
+		width:70%;
+		margin:15% auto 10%;
+		@include fz(20);
+		@include mq(pc){
+			@include fz(16);
+		}
+		@include mq(sp){
+			@include fz(10);
+			width: 100%;
+		}
+	}
+	&__linear-nav {
+		width:40%;
+		margin: 0 auto;
+		@include flex(space-between);
+	}
+	&__prev-label {
+		@include fz(20);
+		font-family: $fSOURCE;
+		position: relative;
+		transition: 0.3s;
+		@include mq(sp){
+			@include fz(14);
+		}
+		&:hover{
+			opacity: 0.7;
+      &::before{
+        left:-33px;
+      }
+      &::after{
+        left:-30px;
+      }
+    }
+    &::before{
+      content:"";
+      position: absolute;
+      top:50%;
+      left:-38px;
+      width:32px;
+      height:1px;
+      background:$cBLACK;
+      transition: all .3s linear;
+			@include mq(sp){
+				width:21px;
+				left:-28px;
+			}
+    }
+    &::after{
+      content:"";
+      position: absolute;
+      top: 33%;
+      left: -36px;
+      width:1px;
+      height:7px;
+      background:$cBLACK;
+      transform:skewX(135deg);
+      transition: all .3s linear;
+			@include mq(sp){
+				top:30%;
+				height: 5px;
+				left:-26px;
+			}
+    }
+
+	}
+	&__next-label {
+		@include fz(20);
+		font-family: $fSOURCE;
+		position: relative;
+		transition: 0.3s;
+		@include mq(sp){
+			@include fz(14);
+		}
+		&:hover{
+			opacity: 0.7;
+      &::before{
+        right:-33px;
+      }
+      &::after{
+        right:-30px;
+      }
+    }
+    &::before{
+      content:"";
+      position: absolute;
+      top:50%;
+      right:-38px;
+      width:32px;
+      height:1px;
+      background:$cBLACK;
+      transition: all .3s linear;
+			@include mq(sp){
+				width:21px;
+				right:-28px;
+			}
+    }
+    &::after{
+      content:"";
+      position: absolute;
+      top: 33%;
+      right: -36px;
+      width:1px;
+      height:7px;
+      background:$cBLACK;
+      transform:skewX(45deg);
+      transition: all .3s linear;
+			@include mq(sp){
+				top:30%;
+				height: 5px;
+				right:-26px;
+			}
+    }
+	}
+}

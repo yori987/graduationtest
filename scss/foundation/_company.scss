@@ -1,0 +1,146 @@
+@use "../global" as *;
+
+.company {
+	&__top {
+		background-image: url(../img/top-company.png);
+		background-position: 0% 50%;
+	}
+	&-1 {
+		position: relative;
+		overflow: hidden;
+		&__wrapper {
+
+		}
+		&__block {
+			width:80%;
+			margin:5% auto 0;
+			@include mq(sp){
+				width: 100%;
+				margin:10% auto 0;
+			}
+		}
+		&__table {
+			width:90%;
+			margin:0 auto;
+			@include mq(sp){
+				width: 100%;
+			}
+		}
+		&__tr {
+			border-top:1px solid $cBLACK;
+			padding:3% 3% 3% 0;
+			box-sizing: border-box;
+			width: 100%;
+			&:last-child {
+				border-bottom: 1px solid $cBLACK;
+			}
+		}
+		&__th {
+			font-weight: 400;
+			padding:3% 3% 3% 2%;
+			text-align: left;
+			width:30%;
+			@include mq(sp){
+				@include fz(14);
+			}
+		}
+		&__td {
+			padding:3% 3% 3% 3%;
+			width:50%;
+			@include mq(sp){
+				@include fz(14);
+			}
+		}
+		&__back-txt {
+			&::before {
+				content:"INFORMATION";
+				bottom:0%;
+				left:40%;
+				@include mq(pc){
+					left: 40%;
+				}
+			}
+		}
+	}
+	&-2 {
+		position: relative;
+		overflow: hidden;
+		&__wrapper {
+		}
+		&__block {
+			display: flex;
+			align-items: center;
+			margin-left: auto;
+			width:80%;
+			margin-bottom:160px;
+			@include mq(pc){
+				width:85%;
+			}
+			@include mq(tab){
+				width: 90%;
+			}
+			@include mq(sp){
+				flex-direction: column-reverse;
+				margin-left: unset;
+				width: 100%;
+				margin-bottom:40px;
+			}
+		}
+		&__text {
+			@include mq(sp){
+				margin:5% auto;
+				width:90%;
+			}
+		}
+		&__txt {
+			margin-bottom :30%;
+			@include fz(20);
+			@include mq(sp){
+				@include fz(14);
+				margin-bottom:10%;
+			}
+			&:last-child {
+				margin-bottom: unset;
+			}
+		}
+		&__map {
+			position: relative;
+			width: 60%;
+			height: 0;
+			padding-top: 40%; 
+			margin-left: auto;
+			@include mq(pc){
+				width: 65%;
+			}
+			@include mq(tab){
+				width:57%;
+			}
+			@include mq(sp){
+				width: 100%;
+				margin-left:unset;
+				padding-top:60%;
+			}
+		}
+		&__iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+		&__back-txt {
+			&::before {
+				content:"ACCESS";
+				bottom:-35%;
+				left:40%;
+				@include mq(pc){
+					left: 40%;
+				}
+				@include mq(sp){
+					bottom:0;
+				}
+			}
+		}
+	}
+	
+}

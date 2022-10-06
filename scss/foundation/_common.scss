@@ -1,0 +1,499 @@
+@use "../global" as *;
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: $fNOTO;
+  line-height: 1.8;
+  letter-spacing: 1px;
+  word-break: break-all;
+  color: $cBLACK;
+}
+
+a {
+  text-decoration: none;
+  color: $cBLACK;
+}
+
+li {
+  list-style: none;
+}
+
+.section-inner {
+  width:80%;
+  max-width: 1340px;
+  padding:90px 0;
+  margin:0 auto;
+  box-sizing: border-box;
+  @include mq(tab){
+    width: 90%;
+    padding:60px 0;
+  }
+  @include mq(sp){
+    width: 90%;
+    padding:40px 0;
+  }
+}
+
+.ttl {
+  @include fz(64);
+  font-family: $fSOURCE;
+  position: relative;
+  letter-spacing: 3px;
+  @include mq(tab){
+    @include fz(40);
+  }
+  &__white {
+    color:$cWHITE;
+    z-index: 2;
+    &::after {
+      content:"";
+      position: absolute;
+      bottom:-20px;
+      left:0;
+      width:100px;
+      height: 1px;
+      background-color: $cWHITE!important;
+    }
+  }
+  &::after {
+    content:"";
+    position: absolute;
+    bottom:0px;
+    left:0;
+    width:100px;
+    height: 1px;
+    background-color:$cBLACK;
+    @include mq(pc){
+      width:50px;
+    }
+  }
+  
+}
+
+.btn {
+  &__link {
+    position: relative;
+    border: 1px solid $cBLACK;
+    padding: 11px 48px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    color: $cBLACK;
+    outline: none;
+    transition: all .2s linear;
+    @include mq(sp){
+      padding:8px 31px;
+      @include fz(14);
+    }
+    &:hover{
+      background:$cBLACK;
+      color:$cWHITE;
+      &::before{
+        right:-30px;
+      }
+      &::after{
+        right:-27px;
+      }
+    }
+    &::before{
+      content:"";
+      position: absolute;
+      top:50%;
+      right:-16px;
+      width:32px;
+      height:1px;
+      background:$cBLACK;
+      transition: all .3s linear;
+    }
+    &::after{
+      content:"";
+      position: absolute;
+      top: 36%;
+      right: -13px;
+      width:1px;
+      height:8px;
+      background:$cBLACK;
+      transform:skewX(45deg);
+      transition: all .3s linear;
+    }
+  }
+}
+
+.btn-white {
+  &__link {
+    position: relative;
+    border: 1px solid $cWHITE;
+    padding: 11px 48px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    color: $cWHITE;
+    outline: none;
+    transition: all .2s linear;
+    z-index: 2;
+    @include mq(sp){
+      padding:8px 31px;
+      @include fz(14);
+    }
+    &:hover{
+      background:$cWHITE;
+      color:$cBLACK;
+      &::before{
+        right:-30px;
+      }
+      &::after{
+        right:-27px;
+      }
+    }
+    &::before{
+      content:"";
+      position: absolute;
+      top:50%;
+      right:-16px;
+      width:32px;
+      height:1px;
+      background:$cWHITE;
+      transition: all .3s linear;
+    }
+    &::after{
+      content:"";
+      position: absolute;
+      top: 36%;
+      right: -13px;
+      width:1px;
+      height:8px;
+      background:$cWHITE;
+      transform:skewX(45deg);
+      transition: all .3s linear;
+    }
+  }
+}
+
+
+.back-txt {
+  position: relative;
+  &::before {
+    @include fz(300);
+    font-family: $fSOURCE;
+    font-weight: 600;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: $cBLACKbackttl;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+    position: absolute;
+    z-index: -1;
+    line-height: 0.8;
+    @include mq(pc){
+      @include fz(200);
+    }
+    @include mq(sp){
+      @include fz(100);
+    }
+  }
+  
+}
+
+.back-txt-white {
+  position: relative;
+  &::before{
+    @include fz(300);
+    font-family: $fSOURCE;
+    font-weight: 600;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: $cGRAYpageback;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+    position: absolute;
+    z-index: -1;
+    line-height: 0.8;
+    @include mq(pc){
+      @include fz(200);
+    }
+    @include mq(sp){
+      @include fz(100);
+    }
+  }
+  
+}
+
+//下層ページ
+
+.page-top {
+	width:100%;
+	&__bg {
+		width:100%;
+		height: 60vh;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    &::before {
+      content:"";
+      position: absolute;
+      top:0;
+      left:0;
+      z-index: 0;
+      width:100%;
+      height: 100%;
+      background-color: rgba($color: $cBLACKPAGE, $alpha: 0.4);
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top:0;
+      left:0;
+      width: 100%;
+      height: 100%;
+      background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAAXNSR0IArs4c6QAAACJJREFUGFdjdHFx+c/AwMCwZ88eRhANA4w4JZBVoeigngQAF48IB/AnK/MAAAAASUVORK5CYII=)repeat;
+      z-index: 0;
+    }
+	}
+  &__ttl {
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    @include fz(64);
+    color:$cWHITE;
+    z-index: 1;
+    letter-spacing: 5px;
+    white-space:nowrap;
+    @include mq(sp){
+      @include fz(36);
+    }
+  }
+}
+
+.page-ttl {
+  @include fz(32);
+  letter-spacing: 5px;
+  font-family: $fSOURCE;
+  padding-left: 40px;
+  position: relative;
+  @include mq(tab){
+    @include fz(24);
+  }
+  @include mq(sp){
+    @include fz(16);
+    padding-left: 35px;
+  }
+  &::before {
+    content:"";
+    position: absolute;
+    top:50%;
+    left:13px;
+    transform: translate(-50%,-50%);
+    width:25px;
+    height: 1px;
+    background-color: $cBLACK;
+    @include mq(sp){
+      width:20px;
+    }
+  }
+}
+
+.page-ttl_w {
+  @include fz(32);
+  letter-spacing: 5px;
+  font-family: $fSOURCE;
+  padding-left: 40px;
+  position: relative;
+  color:$cWHITE;
+  @include mq(tab){
+    @include fz(24);
+  }
+  @include mq(sp){
+    @include fz(16);
+    padding-left: 35px;
+  }
+  &::before {
+    content:"";
+    position: absolute;
+    top:50%;
+    left:13px;
+    transform: translate(-50%,-50%);
+    width:25px;
+    height: 1px;
+    background-color: $cWHITE;
+    @include mq(sp){
+      width:20px;
+    }
+  }
+}
+
+
+
+/*流れるタイトル*/
+.slide-in {
+	overflow: hidden;
+  display: inline-block;
+}
+
+.slide-in_inner {
+	display: inline-block;
+
+}
+
+/*左右のアニメーション*/
+.leftAnime{
+    opacity: 0;/*事前に透過0にして消しておく*/
+}
+
+.slideAnimeLeftRight {
+	animation-name:slideTextX100;
+	animation-duration:0.8s;
+	animation-fill-mode:forwards;
+  opacity: 0;
+}
+
+@keyframes slideTextX100 {
+  from {
+	transform: translateX(-100%); /*要素を左の枠外に移動*/
+        opacity: 0;
+  }
+
+  to {
+	transform: translateX(0);/*要素を元の位置に移動*/
+    opacity: 1;
+  }
+}
+
+.slideAnimeRightLeft {
+	animation-name:slideTextX-100;
+	animation-duration:0.8s;
+	animation-fill-mode:forwards;
+  opacity: 0;
+}
+
+
+@keyframes slideTextX-100 {
+  from {
+	transform: translateX(100%);/*要素を右の枠外に移動*/
+    opacity: 0;
+  }
+
+  to {
+	transform: translateX(0);/*要素を元の位置に移動*/
+    opacity: 1;
+  }
+}
+
+/*トップFVタイトルだけ遅らせる*/
+._anime-delay{
+  animation-delay: 3.1s;
+}
+
+.page__back {
+  box-sizing: border-box;
+  position: absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:100%;
+  padding-right:30%;
+  z-index: -10;
+  @include mq(sp){
+    padding-right:14%;
+  }
+  &-item {
+    position: relative;
+    height: 100%;
+    background: #e4e4ea;
+  }
+}
+
+.block-inner {
+  width:90%;
+	margin-left:auto;
+  @include mq(sp){
+    width:100%;
+    margin-left:unset;
+  }
+}
+
+//スクロールアニメーション
+/* fadeUp */
+.fadeUp {
+  animation: fadeUpAnime ease-out 0.8s forwards;  /* fadeUpAnimeを0.8秒で一回実行 */
+  opacity: 0;
+}
+
+.fadeUpLeSlow {
+  animation: fadeUpAnime 0.8s forwards;  /* fadeUpAnimeを0.8秒で一回実行 */
+  opacity: 0;
+}
+
+/* fadeLeft */ 
+.fadeLeft {
+  animation: fadeLeftAnime ease-out 0.8s forwards;  /* fadeLeftAnimeを0.8秒で一回実行 */
+  opacity: 0;
+  overflow: hidden;
+}
+
+/* fadeRight */
+.fadeRight { 
+  animation: fadeRightAnime ease-out 0.8s forwards;  /* fadeRightAnimeを0.8秒で一回実行 */ 
+  opacity: 0; 
+  overflow: hidden; 
+} 
+
+.fadeUpTrigger, 
+.fadeLeftTrigger, 
+.fadeRightTrigger { 
+  opacity: 0;  /* 初めは見えないようにしておく */
+}
+
+@keyframes fadeUpAnime { 
+  from { 
+    opacity: 0; /* 初めは見えないようにしておく */ 
+    transform: translateY(100px);  /* 100px下に動かしておく */ 
+  } 
+
+  to { 
+    opacity: 1;  /* 可視化する */ 
+    transform: translateY(0);  /* 元の位置に戻す */ 
+  }
+} 
+
+@keyframes fadeLeftAnime { 
+  from { 
+    opacity: 0;  /* 初めは見えないようにしておく */ 
+    transform: translateX(100px);  /* 100px右に動かしておく */ 
+  } 
+  to { 
+    opacity: 1; /* 可視化する */ 
+    transform: translateX(0);  /* 元の位置に戻す */ 
+  }
+} 
+
+@keyframes fadeRightAnime { 
+  from { 
+    opacity: 0; /* 初めは見えないようにしておく */ 
+    transform: translateX(-100px);  /* 100px左に動かしておく */ 
+  } 
+  to { 
+  opacity: 1; /* 可視化する */ 
+  transform: translateX(0);  /* 元の位置に戻す */ 
+  } 
+}
+
+
+/*レスポンシブ改行*/
+@media screen and (min-width: 680px) {
+    .pc {
+      display: inline;
+    }
+    .sp {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 680px) {
+    .pc {
+      display: none;
+    }
+    .sp {
+      display: inline;
+    }
+  }

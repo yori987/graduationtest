@@ -1,0 +1,119 @@
+@use "../global" as *;
+
+.footer {
+	&__wrapper {
+		width:80%;
+		max-width: 1340px;
+		padding:40px 0;
+		margin:0 auto;
+		box-sizing: border-box;
+		@include mq(pc){
+			width:90%;
+		}
+		@include mq(sp){
+			padding:40px 0 20px;
+		}
+	}
+	background-color: $cBLACK;
+	&__block1 {
+
+	}
+	&__icon {
+		display: flex;
+		align-items: center;
+	}
+	&__logo {
+		width:250px;
+		margin-right:5%;
+		@include mq(tab){
+			width:200px;
+		}
+		@include mq(sp){
+			width:160px;
+		}
+		img {
+			width:100%;
+		}
+	}
+	&__sns {
+		width:50%;
+		a {
+			transition: 0.3s;
+			&:hover {
+				opacity: 0.5;
+			}
+		}
+	}
+	.fa-brands {
+		color: $cWHITE;
+		@include fz(30);
+		padding-right: 5%;
+		@include mq(tab){
+			@include fz(24);
+		}
+	}
+	&__adress {
+		color:$cWHITE;
+		@include fz(14);
+		margin-top:2%;
+		@include mq(tab){
+			@include fz(12);
+		}
+	}
+	&__block2 {
+		margin-top:10%;
+		width: 100%;
+		@include mq(sp){
+			margin-top:20%;
+		}
+	}
+	&__list {
+		@include flex(end);
+		width:100%;
+		@include mq(sp){
+			flex-wrap: wrap;
+			@include flex(start);
+		}
+	}
+	&__item {
+		padding-right:5%;
+		box-sizing: border-box;
+		&:last-child {
+			padding-right:unset;
+		}
+		@include mq(tab){
+			padding-right: 3%;
+		}
+		@include mq(sp){
+			padding-right:6%;
+			margin-bottom:5%;
+		}
+		&-4 {
+			@include mq(sp){
+				padding-right:8%;
+			}
+		}
+		&-5 {
+			@include mq(sp){
+				padding-right: 12%;
+			}
+		}
+	}
+	&__link{
+		color: $cWHITE;
+		transition: 0.3s;
+		&:hover {
+			opacity: 0.5;
+		}
+		@include mq(tab){
+			@include fz(13);
+		}
+	}
+	small {
+		color: $cWHITE;
+		@include fz(12);
+		display: block;
+		text-align: center;
+		padding-bottom:1%;
+	}
+}

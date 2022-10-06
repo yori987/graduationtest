@@ -1,0 +1,126 @@
+@use "../global" as *;
+
+.news {
+	&__top {
+		background-image: url(../img/news-top.png);
+		background-position: 0% 50%;
+	}
+	&-1 {
+		position: relative;
+		overflow: hidden;
+		&__wrapper {
+
+		}
+		&__list {
+			width:80%;
+			margin:0 auto 10%;
+			@include mq(pc){
+				width:100%;
+			}
+		}
+		&__item {
+			border-top:1px solid $cBLACK;
+			padding:4% 0;
+			z-index: 3;
+			&:last-child {
+				border-bottom: 1px solid $cBLACK;
+			}
+			&:hover {
+				.news-1__date,
+				.news-1__category,
+				.news-1__txt {
+					opacity: 0.7;
+				}
+			}
+		}
+		&__link {
+			display: flex;
+			align-items: center;
+			z-index: 2;
+			color: $cBLACK;
+		}
+		&__date {
+			padding-right:8%;
+			white-space: nowrap;
+			transition: 0.3s;
+			@include mq(sp){
+				@include fz(10);
+				padding-right: 4%;
+			}
+		}
+		&__category {
+			margin-right:8%;
+			padding:0.5% 1%;
+			border: 1px solid $cBLACK;
+			white-space: nowrap;
+			transition: 0.3s;
+			@include mq(sp){
+				display: none;
+			}
+		}
+		&__txt {
+			transition: 0.3s;
+			@include mq(sp){
+				@include fz(10);
+			}
+		}
+		&__back-txt {
+			&::before {
+				content:"TOPICS";
+				bottom:0%;
+				right:-20%;
+				@include mq(pc){
+					right: -20%;
+				}
+				@include mq(tab){
+					right:-20%;
+				}
+				@include mq(sp){
+					right:-20%;
+				}
+			}
+		}
+	}
+}
+
+
+.Pagination {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	&-Item-Link {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		width: 45px;
+		height: 45px;
+		background: $cBLACK;
+		border: solid 2px $cBLACK;
+		font-size: 14px;
+		color: $cWHITE;
+		font-weight: bold;
+		font-family: $fSOURCE;
+		transition: all 0.15s linear;
+    @include mq(sp){
+      width:25px;
+      height: 25px;
+    }
+	}
+}
+.Pagination
+.Pagination-Item-Link-Icon {
+width: 20px;
+}
+.Pagination-Item-Link.isActive {
+background: $cWHITE;
+color: $cBLACK;
+pointer-events: none;
+}
+.Pagination-Item-Link:not(.isActive):hover {
+background: $cWHITE;
+color: $cBLACK;
+}
+.Pagination > * + * {
+margin-left: 12px;
+}

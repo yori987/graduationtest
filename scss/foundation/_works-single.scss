@@ -1,0 +1,143 @@
+@use "../global" as *;
+
+.works-single {
+	position: relative;
+	&__wrapper {
+		padding:90px 0;
+		margin:0 auto;
+		box-sizing: border-box;
+		@include mq(tab){
+			padding:60px 0;
+		}
+		@include mq(sp){
+			padding:40px 0;
+		}
+	}
+	&__block {
+		width:80%;
+		margin-left:auto;
+		background-color: $cBLACK;
+		padding:5%;
+		box-sizing: border-box;
+		z-index: 0;
+		color: $cWHITE;
+		@include mq(pc){
+			width:90%;
+		}
+		@include mq(sp){
+			width:95%;
+			padding:7%;
+		}
+	}
+	&__text {
+
+	}
+	&__subttl {
+		@include fz(20);
+		@include mq(sp){
+			@include fz(12);
+		}
+	}
+	&__ttl {
+		@include fz(32);
+		font-weight: normal;
+		@include mq(sp){
+			@include fz(20);
+		}
+	}
+	&__list {
+		margin-top:5%;
+	}
+	&__item {
+		@include fz(20);
+		@include mq(sp){
+			@include fz(10);
+		}
+	}
+	&__txt {
+		@include fz(20);
+		margin-top:5%;
+		@include mq(sp){
+			@include fz(10);
+		}
+	}
+	&__img {
+		width:50%;
+		margin:5% auto;
+		position: relative;
+		@include mq(pc){
+			width:70%;
+		}
+		@include mq(sp){
+			width: 100%;
+		}
+		img {
+			width:100%;
+		}
+	}
+	&__link {
+		
+	}
+	&__back-item {
+		margin-top: 50%;
+		@include mq(sp){
+			margin-top:80%;
+		}
+	}
+
+}
+
+
+/*　画像の拡大＋テキスト出現　*/
+
+.works-single__img{/*テキストの基点となる位置を定義*/
+	position: relative;
+}
+
+.works-single__img span.mask{
+	position: relative;
+	transition: .3s ease-in-out;/*移り変わる速さを変更したい場合はこの数値を変更*/
+	display: block;/*画像をくくるspanタグをブロック要素にする*/
+	line-height: 0;/*行の高さを0にする*/
+	overflow:hidden;/*拡大してはみ出る要素を隠す*/
+}
+
+.works-single__img:hover span.mask::before{/*hoverした時の変化*/
+	content:"";
+	position: absolute;
+	z-index:2;
+	top:0px;
+	left:0px;
+	width:100%;
+  height: 100%;
+	background:rgba(0,0,0,0.5);/*背景色*/
+}
+
+.works-single__img img{
+	transform: scale(1);
+	filter: blur(0);
+	transition: .3s ease-in-out;/*移り変わる速さを変更したい場合はこの数値を変更*/
+}
+
+.works-single__img:hover img{/*hoverした時の変化*/
+	transform: scale(1.2);/*拡大の値を変更したい場合はこの数値を変更*/
+	filter: blur(2px);/*ぼかし具合を変更したい場合はこの数値を変更*/
+}
+
+.works-single__img span.cap{
+	opacity:0;
+	transition: .5s ease-in-out;/*移り変わる速さを変更したい場合はこの数値を変更*/
+	position: absolute;
+	z-index:3;/*テキストを前面に出す*/
+	top: 50%;
+  left: 50%;
+	transform: translate(-50%,-50%);
+	color: #fff;/*テキストの色を変えたい場合はここを修正*/
+  line-height: 1.5;/*行の高さを1.5にする*/
+	@include fz(24);
+	font-family: $fSOURCE;
+}
+
+.works-single__img:hover span.cap{/*hoverした時の変化*/
+	opacity:1;
+}

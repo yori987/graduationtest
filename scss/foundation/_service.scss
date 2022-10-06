@@ -1,0 +1,198 @@
+@use "../global" as *;
+
+.service {
+	&__top {
+		background-image: url(../img/service-top.png);
+		background-position: 0% 88%;
+	}
+	&-1 {
+		position: relative;
+		overflow: hidden;
+		&__wrapper {
+			padding-bottom:180px;
+			@include mq(pc){
+				padding-bottom:100px;
+			}
+			@include mq(sp){
+				padding-bottom: 40px;
+			}
+		}
+		&__block {
+			margin-top:5%;
+		}
+		&__txt {
+			@include fz(20);
+			@include mq(sp){
+				@include fz(14);
+			}
+		}
+		&__back-txt {
+			&::before {
+				content:"PROCESS";
+				bottom:0%;
+				right:-41%;
+				@include mq(pc){
+					right: -41%;
+				}
+				@include mq(tab){
+					right:-51%;
+				}
+				@include mq(sp){
+					right:-51%;
+				}
+			}
+		}
+	}
+	&-2 {
+		position: relative;
+		&__wrapper {
+			
+		}
+		&__block {
+			width:80%;
+			margin-left:auto;
+			background-repeat: no-repeat;
+			background-size: cover;
+			position: relative;
+			counter-increment: number; 
+			padding:5%;
+			box-sizing: border-box;
+			z-index: 0;
+			@include mq(pc){
+				width: 90%;
+				padding:6%;
+			}
+			@include mq(sp){
+				width: 95%;
+				
+			}
+			&::before {
+				content: counter(number, decimal-leading-zero);
+				@include fz(128);
+				font-family: $fSOURCE;
+				font-weight: bold;
+				letter-spacing: 0px;
+				line-height: 2;
+				-webkit-text-stroke-width: 2px;
+				-webkit-text-stroke-color:  $cGRAYpageback;
+				-webkit-text-fill-color: transparent;
+				z-index: 2;
+				position: absolute;
+				top:0;
+				left:50px;
+				@include mq(pc){
+					left:60px;
+				}
+				@include mq(tab){
+					left: 50px;
+				}
+				@include mq(sp){
+					@include fz(64);
+					left:28px;
+				}
+			}
+			&_1 {
+				background-image: url(../img/service-1.png);
+			}
+			&_2 {
+				background-image: url(../img/service-2.png);
+			}
+			&_3 {
+				background-image: url(../img/service-3.png);
+			}
+			&_4 {
+				background-image: url(../img/service-4.png);
+				background-position: 0% 70%;
+			}
+			&::after {
+				content:"";
+				position: absolute;
+				top:0;
+				left:0;
+				width:100%;
+				height: 100%;
+				background-color: rgba($color: $cBLACKPAGE, $alpha: 0.7);
+				z-index: -1;
+			}
+		}
+		&__inner {
+			padding:140px 160px 70px;
+			box-sizing: border-box;
+			color:$cWHITE;
+			@include mq(pc){
+				padding:160px 10px 80px;
+			}
+			@include mq(sp){
+				padding:100px 10px 80px;
+			}
+		}
+		&__ttl {
+			@include fz(36);
+			@include mq(sp){
+				@include fz(24);
+			}
+
+		}
+		&__subttl {
+			@include fz(24);
+			margin-top:5%;
+			font-weight: normal;
+			@include mq(sp){
+				@include fz(16);
+			}
+		}
+		&__txt {
+			@include fz(16);
+			margin-top:5%;
+			@include mq(sp){
+				@include fz(14);
+			}
+		}
+		&__back-item{
+			margin-top:890px;
+			@include mq(sp){
+				margin-top:700px;
+			}
+		}
+	}
+	&-3 {
+		position: relative;
+		overflow: hidden;
+		&__wrapper {
+
+		}
+		&__block {
+			@include mq(sp){
+				margin:15% 0;
+			}
+		}
+		&__item {
+			margin-top:5%;
+		}
+		&__ttl {
+			@include fz(24);
+			@include mq(sp){
+				@include fz(16);
+			}
+		}
+		&__txt {
+			@include fz(20);
+			margin-top:3%;
+			width:70%;
+			@include mq(sp){
+				@include fz(12);
+			}
+		}
+		&__back-txt {
+			&::before {
+				content: "LINE UP";
+				bottom:0%;
+				right:-25%;
+				@include mq(sp){
+					right: -30%;
+				}
+			}
+		}
+	}
+	
+}

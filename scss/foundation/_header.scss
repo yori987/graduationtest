@@ -1,0 +1,249 @@
+@use "../global" as *;
+
+.header {
+	width:100%;
+	position: fixed;
+	z-index: 100;
+	&__inner {
+		max-width: 1440px;
+		height: 70px;
+		margin:0 auto;
+		display: flex;
+		align-items: center;
+		padding-left: 1%;
+		padding-right: 1%;
+		box-sizing: border-box;
+		@include mq(tab){
+			padding-left: unset;
+			padding-right: unset;
+		}
+	}
+	&__logo {
+		width:12%;
+		@include mq(tab){
+			width:20%;
+			padding-left:2%;
+		}
+		@include mq(sp){
+			width:40%;
+			padding-left:2%;
+		}
+	}
+	&__img {
+		width:100%;
+		height: 100%;
+	}
+	&__nav{
+		margin-left: auto;
+		@include mq(tab){
+			/*position:fixed;にし、z-indexの数値を小さくして最背面へ*/
+			position:fixed;
+			z-index: -1;
+			opacity: 0;/*はじめは透過0*/
+			/*ナビの位置と形状*/
+			top:0;
+			width:100%;
+			height: 100vh;/*ナビの高さ*/
+			background:rgba(000,000,000,0.3);/*背景を少し透過させる*/
+			/*動き*/
+			transition: all 0.3s;
+			&.panelactive {
+				opacity: 1;
+				z-index:10;
+				.header__list {
+					display: block;
+				}
+			}
+		}
+	}
+	&__list {
+		display: flex;
+		align-items: center;
+		@include mq(tab){
+			display: none;/*はじめは非表示*/
+			/*ナビゲーション天地中央揃え*/
+			position: absolute;
+			z-index: 1;
+			top:50%;
+			left:23%;
+			transform: translate(-50%,-50%);
+		}
+	}
+	&__item {
+		padding-right:40px;
+		&:last-child{
+			padding-right:unset;
+		}
+		@include mq(tab){
+			list-style: none;
+      text-align: left; 
+			padding-right: unset;
+		}
+	}
+	&__home {
+		display: none;
+		@include mq(tab){
+			display: block;
+		}
+	}
+	&__link {
+		color: $cWHITE;
+		font-family: $fSOURCE;
+		position: relative;
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: -5px;
+			left: 15%;
+			width: 70%;
+			height: 2px;
+			background:$cWHITE;
+			transition: all .3s;
+			transform: scale(0, 1);
+			transform-origin: left top;
+		}
+		&:hover::after {
+			transform: scale(1, 1);
+		}
+		@include mq(tab){
+			color: $cWHITE;
+			text-decoration: none;
+			padding:10px;
+			display: block;
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
+			font-weight: bold;
+			@include fz(24);
+		}
+		@include mq(sp){
+			@include fz(16);
+		}
+	}
+}
+
+.hamburger {
+	display: none;
+	@include mq(tab){
+		display: block;
+		position: relative;
+		cursor: pointer;
+		margin-left: auto;
+		z-index: 10;
+		width: 70px;
+		height:70px;
+		span {
+			display: inline-block;
+			transition: all .4s;
+			position: absolute;
+			right: 20px;
+			height: 2px;
+			background-color: $cWHITE;
+			z-index: 10;
+			&:nth-of-type(1) {
+				top:21px;	
+				width: 50%;
+			}
+			&:nth-of-type(2) {
+				top:31px;
+				width:30%;
+			}
+		}
+		&.active {
+			span {
+				&:nth-of-type(1) {
+					top: 22px;
+					left: 16px;
+					transform: translateY(6px) rotate(-45deg);
+					width: 35%;
+					z-index: 10;
+				}
+				&:nth-of-type(2) {
+					top: 34px;
+					left: 16px;
+					transform: translateY(-6px) rotate(45deg);
+					width: 35%;
+					z-index: 10;
+				}
+			}
+		}
+	}
+	@include mq(sp){
+		width: 50px;
+		height:50px;
+		span{
+			right: 10px;
+			&:nth-of-type(1) {
+				top:14px;	
+			}
+			&:nth-of-type(2) {
+				top:21px;
+			}
+		}
+		&.active {
+			span {
+				&:nth-of-type(1) {
+					top: 12px;
+				}
+				&:nth-of-type(2) {
+					top: 24px;
+				}
+			}
+		}
+	}
+}
+
+/*ハンバーガーメニューぼかし*/
+.mainblur{
+	filter: blur(8px);
+}
+
+/*スクロールすると背景白で文字を黒にする*/
+.header.HeightMin{
+	position: fixed;
+	background-color: rgba($color: $cWHITE, $alpha: 0.7);
+	z-index: 999;/*最前面へ*/
+	height:70px;
+	animation: DownAnime 0.5s forwards;
+	.header__link {
+		color:$cBLACK;
+		position: relative;
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: -5px;
+			left: 15%;
+			width: 70%;
+			height: 2px;
+			background:$cBLACK;
+			transition: all .3s;
+			transform: scale(0, 1);
+			transform-origin: left top;
+		}
+		&:hover::after {
+			transform: scale(1, 1);
+		}
+	}
+}
+
+.header__img._before.headerLogoScroll {
+  display : none;
+}
+.header__img._after {
+  display : none;
+}
+.header__img._after.headerLogoScroll{
+  display : block;
+}
+
+
+
+@keyframes DownAnime{
+  from {
+    opacity: 0;
+		transform: translateY(-170px);
+  }
+  to {
+    opacity: 1;
+		transform: translateY(0);
+  }
+}

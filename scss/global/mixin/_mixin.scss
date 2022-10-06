@@ -1,0 +1,11 @@
+@use "../setting" as *;
+
+@mixin flex($justify: center) {
+  display: flex;
+  align-items: center;
+  justify-content: $justify;
+}
+
+@mixin fz($size) {
+	font-size: ($size / 16) + rem;
+}
