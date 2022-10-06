@@ -1625,7 +1625,7 @@ li {
 }
 .footer__block2 {
   margin-top: 10%;
-  width: 98%;
+  width: 100%;
 }
 @media screen and (max-width: 480px) {
   .footer__block2 {
@@ -1644,6 +1644,7 @@ li {
     display: flex;
     align-items: center;
     justify-content: start;
+    width: 95%;
   }
 }
 .footer__item {
@@ -1652,6 +1653,11 @@ li {
 }
 .footer__item:last-child {
   padding-right: unset;
+}
+@media screen and (max-width: 768px) {
+  .footer__item {
+    padding-right: 3%;
+  }
 }
 @media screen and (max-width: 480px) {
   .footer__item {
@@ -1679,9 +1685,6 @@ li {
 @media screen and (max-width: 768px) {
   .footer__link {
     font-size: 0.8125rem;
-  }
-  .footer__link:hover {
-    display: none;
   }
 }
 .footer small {
