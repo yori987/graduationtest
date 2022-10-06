@@ -17,9 +17,9 @@ $(".header__link").click(function () {
 var windowwidth = window.innerWidth || document.documentElement.clientWidth || 0;
 
   var responsiveImage = [//PC用の画像
-    { src: '../img/top1.png'},
-    { src: '../img/top2.png'},
-    { src: '../img/top3.png'}
+    { src: 'img/top1.png'},
+    { src: 'img/top2.png'},
+    { src: 'img/top3.png'}
   ];
 
 //Vegas全体の設定
