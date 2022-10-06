@@ -1653,11 +1653,6 @@ li {
 .footer__item:last-child {
   padding-right: unset;
 }
-@media screen and (max-width: 768px) {
-  .footer__item {
-    padding-right: 3%;
-  }
-}
 @media screen and (max-width: 480px) {
   .footer__item {
     padding-right: 6%;
@@ -1685,6 +1680,9 @@ li {
   .footer__link {
     font-size: 0.8125rem;
   }
+  .footer__link:hover {
+    display: none;
+  }
 }
 .footer small {
   color: #fff;
@@ -1697,7 +1695,7 @@ li {
 .header {
   width: 100%;
   position: fixed;
-  z-index: 100;
+  z-index: 1;
 }
 .header__inner {
   max-width: 1440px;
@@ -1741,19 +1739,21 @@ li {
   .header__nav {
     /*position:fixed;にし、z-indexの数値を小さくして最背面へ*/
     position: fixed;
-    z-index: -1;
+    z-index: -10;
     opacity: 0; /*はじめは透過0*/
     /*ナビの位置と形状*/
     top: 0;
     width: 100%;
     height: 100vh; /*ナビの高さ*/
     background: rgba(0, 0, 0, 0.5); /*背景を少し透過させる*/
+    pointer-events: none;
     /*動き*/
     transition: all 0.3s;
   }
   .header__nav.panelactive {
     opacity: 1;
-    z-index: 10;
+    z-index: 1;
+    pointer-events: visible;
   }
   .header__nav.panelactive .header__list {
     display: block;
@@ -1768,7 +1768,7 @@ li {
     display: none; /*はじめは非表示*/
     /*ナビゲーション天地中央揃え*/
     position: absolute;
-    z-index: 1;
+    z-index: 999;
     top: 50%;
     left: 23%;
     transform: translate(-50%, -50%);
@@ -1842,7 +1842,7 @@ li {
     position: relative;
     cursor: pointer;
     margin-left: auto;
-    z-index: 10;
+    z-index: 999;
     width: 70px;
     height: 70px;
   }
@@ -1853,7 +1853,6 @@ li {
     right: 20px;
     height: 2px;
     background-color: #fff;
-    z-index: 10;
   }
   .hamburger span:nth-of-type(1) {
     top: 27px;
@@ -1868,14 +1867,12 @@ li {
     left: 16px;
     transform: translateY(6px) rotate(-45deg);
     width: 35%;
-    z-index: 10;
   }
   .hamburger.active span:nth-of-type(2) {
     top: 37px;
     left: 16px;
     transform: translateY(-6px) rotate(45deg);
     width: 35%;
-    z-index: 10;
   }
 }
 @media screen and (max-width: 480px) {
@@ -1909,8 +1906,8 @@ li {
 .header.HeightMin {
   position: fixed;
   background-color: rgba(255, 255, 255, 0.7);
-  z-index: 999; /*最前面へ*/
   height: 70px;
+  z-index: 2;
   animation: DownAnime 0.5s forwards;
 }
 .header.HeightMin .header__link {

@@ -88,7 +88,7 @@
 			padding-right:unset;
 		}
 		@include mq(tab){
-			padding-right: 3%;
+			// padding-right: 3%;
 		}
 		@include mq(sp){
 			padding-right:6%;
@@ -113,6 +113,9 @@
 		}
 		@include mq(tab){
 			@include fz(13);
+			&:hover {
+				display: none;
+			}
 		}
 	}
 	small {
