@@ -25,6 +25,12 @@
 	&__logo {
 		width:250px;
 		margin-right:5%;
+		a {
+			transition: 0.3s;
+			&:hover {
+				opacity: 0.5;
+			}
+		}
 		@include mq(tab){
 			width:200px;
 		}
@@ -62,7 +68,7 @@
 	}
 	&__block2 {
 		margin-top:10%;
-		width: 100%;
+		width: 98%;
 		@include mq(sp){
 			margin-top:20%;
 		}

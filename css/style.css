@@ -172,11 +172,12 @@ input, select {
 }
 .about__btn {
   margin: 5% auto;
-  text-align: center;
+  text-align: end;
 }
 @media screen and (max-width: 480px) {
   .about__btn {
     margin: 10% auto;
+    text-align: center;
   }
 }
 
@@ -1448,7 +1449,7 @@ li {
   }
 }
 .contact-main__box-textarea {
-  width: 70%;
+  width: 65%;
   height: 30vh;
   font-size: 1rem;
   padding: 5px;
@@ -1553,6 +1554,12 @@ li {
   width: 250px;
   margin-right: 5%;
 }
+.footer__logo a {
+  transition: 0.3s;
+}
+.footer__logo a:hover {
+  opacity: 0.5;
+}
 @media screen and (max-width: 768px) {
   .footer__logo {
     width: 200px;
@@ -1597,7 +1604,7 @@ li {
 }
 .footer__block2 {
   margin-top: 10%;
-  width: 100%;
+  width: 98%;
 }
 @media screen and (max-width: 480px) {
   .footer__block2 {
@@ -1719,7 +1726,7 @@ li {
     top: 0;
     width: 100%;
     height: 100vh; /*ナビの高さ*/
-    background: rgba(0, 0, 0, 0.3); /*背景を少し透過させる*/
+    background: rgba(0, 0, 0, 0.5); /*背景を少し透過させる*/
     /*動き*/
     transition: all 0.3s;
   }
@@ -1828,22 +1835,22 @@ li {
     z-index: 10;
   }
   .hamburger span:nth-of-type(1) {
-    top: 21px;
+    top: 27px;
     width: 50%;
   }
   .hamburger span:nth-of-type(2) {
-    top: 31px;
+    top: 39px;
     width: 30%;
   }
   .hamburger.active span:nth-of-type(1) {
-    top: 22px;
+    top: 25px;
     left: 16px;
     transform: translateY(6px) rotate(-45deg);
     width: 35%;
     z-index: 10;
   }
   .hamburger.active span:nth-of-type(2) {
-    top: 34px;
+    top: 37px;
     left: 16px;
     transform: translateY(-6px) rotate(45deg);
     width: 35%;
@@ -1859,16 +1866,16 @@ li {
     right: 10px;
   }
   .hamburger span:nth-of-type(1) {
-    top: 14px;
+    top: 19px;
   }
   .hamburger span:nth-of-type(2) {
-    top: 21px;
+    top: 27px;
   }
   .hamburger.active span:nth-of-type(1) {
-    top: 12px;
+    top: 15px;
   }
   .hamburger.active span:nth-of-type(2) {
-    top: 24px;
+    top: 27px;
   }
 }
 
@@ -1889,6 +1896,11 @@ li {
   color: #333;
   position: relative;
 }
+@media screen and (max-width: 768px) {
+  .header.HeightMin .header__link {
+    color: #fff;
+  }
+}
 .header.HeightMin .header__link::after {
   content: "";
   position: absolute;
@@ -1903,6 +1915,12 @@ li {
 }
 .header.HeightMin .header__link:hover::after {
   transform: scale(1, 1);
+}
+.header.HeightMin .hamburger span {
+  background-color: #333;
+}
+.header.HeightMin .hamburger.active span:nth-of-type(1), .header.HeightMin .hamburger.active span:nth-of-type(2) {
+  background-color: #fff;
 }
 
 .header__img._before.headerLogoScroll {

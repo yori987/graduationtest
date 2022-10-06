@@ -70,9 +70,10 @@
 	}
 	&__btn {
 		margin:5% auto;
-		text-align: center;
+		text-align: end;
 		@include mq(sp){
 			margin:10% auto;
+			text-align: center;
 		}
 	}
 	
