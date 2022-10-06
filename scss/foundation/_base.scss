@@ -84,11 +84,19 @@
 .wave {
 	width:100%;
 	height: 20vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	position: relative;
+	@include mq(sp){
+		height: 24vh;
+	}
+	&._1 {
+		@include mq(sp){
+			height: 30vh;
+		}
+	}
 }
 
 /*========= waveを描画するエリア設定 ===============*/
@@ -416,9 +424,15 @@ canvas{
 	position: fixed;
 	width: 100%;
 	height: 100%;
-	background: linear-gradient(180deg, $cWHITE 0%, $cWHITE 50%, $cGRAY 50%, $cGRAY 100%);;
+	background: linear-gradient(180deg, $cWHITE 0%, $cWHITE 50%, $cGRAY 50%, $cGRAY 100%);
 	z-index: 9999999;
 	text-align:center;
+	@include mq(pc){
+		background: linear-gradient(180deg, $cWHITE 0%, $cWHITE 55%, $cGRAY 55%, $cGRAY 100%);
+	}
+	@include mq(sp){
+		background: linear-gradient(180deg, $cWHITE 0%, $cWHITE 55%, $cGRAY 55%, $cGRAY 100%);
+	}
 }
 
 #splash-logo {

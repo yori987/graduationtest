@@ -191,6 +191,16 @@ input, select {
   overflow: hidden;
   position: relative;
 }
+@media screen and (max-width: 480px) {
+  .wave {
+    height: 24vh;
+  }
+}
+@media screen and (max-width: 480px) {
+  .wave._1 {
+    height: 30vh;
+  }
+}
 
 /*========= waveを描画するエリア設定 ===============*/
 canvas {
@@ -580,6 +590,16 @@ canvas {
   background: linear-gradient(180deg, #fff 0%, #fff 50%, #eee 50%, #eee 100%);
   z-index: 9999999;
   text-align: center;
+}
+@media screen and (max-width: 1024px) {
+  #splash {
+    background: linear-gradient(180deg, #fff 0%, #fff 55%, #eee 55%, #eee 100%);
+  }
+}
+@media screen and (max-width: 480px) {
+  #splash {
+    background: linear-gradient(180deg, #fff 0%, #fff 55%, #eee 55%, #eee 100%);
+  }
 }
 
 #splash-logo {
@@ -1338,6 +1358,7 @@ li {
 @media screen and (max-width: 1024px) {
   .contact-main__wrapper {
     width: 90%;
+    padding: 40px 0 90px;
   }
 }
 .contact-main__txt {
@@ -1522,7 +1543,7 @@ li {
 }
 @media screen and (max-width: 480px) {
   .contact-main__back-txt::before {
-    right: -50%;
+    right: -62%;
   }
 }
 
@@ -2201,6 +2222,7 @@ li {
 }
 .service-2 {
   position: relative;
+  overflow: hidden;
 }
 .service-2__block {
   width: 80%;

@@ -12,6 +12,7 @@
 			width:70%;
 			@include mq(pc){
 				width:90%;
+				padding:40px 0 90px;
 			}
 		}
 		&__txt {
@@ -170,7 +171,7 @@
 					right:-50%;
 				}
 				@include mq(sp){
-					right:-50%;
+					right:-62%;
 				}
 			}
 		}
