@@ -99,7 +99,10 @@
 					}
 					@include mq(tab){
 							display: block;
-							width: 97%;
+							width: 98%;
+					}
+					@include mq(sp){
+						width:97%;
 					}
 			}
 			&-textarea {
@@ -109,7 +112,10 @@
 					padding:5px;
 					position: relative;
 					@include mq(tab){
-							width: 97%;
+							width: 98%;
+					}
+					@include mq(sp){
+						width:97%;
 					}
 			
 			}

@@ -131,8 +131,8 @@
 		&__back-txt {
 			&::before {
 				content:"ACCESS";
-				bottom:-35%;
-				left:40%;
+				bottom:0%;
+				left:43%;
 				@include mq(pc){
 					left: 40%;
 				}
